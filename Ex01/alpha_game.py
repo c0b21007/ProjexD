@@ -39,6 +39,7 @@ def kaito(seikai):
 
 
 
+
 if __name__ == "__main__":
     for i in range(num_challenge):
         abs_chars = shutudai()
