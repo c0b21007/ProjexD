@@ -1,7 +1,7 @@
 import random
 from site import abs_paths
 num_all = 10
-num_abs = 2
+num_abs = random.randint(1, 10)
 num_challenge = 2
 alpha_list = list("QWERTYUIOPASDFGHJKLZXCVBNM")
 def shutudai():
@@ -16,7 +16,7 @@ def shutudai():
         if i not in abs_chars:
             print(i, end="")
     print()
-    print("デバッグ用欠損文字：", abs_chars)
+    #print("デバッグ用欠損文字：", abs_chars)
     return abs_chars
 
 
