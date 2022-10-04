@@ -22,6 +22,29 @@ def click_equal(event):
 def click_delete(event):
     entry.delete(0, tk.END)
 
+### %コマンド 
+def click_nijou(event):
+    siki = entry.get()
+    res0 = eval(siki)
+    result_fin = res0/100
+    entry.delete(0, tk.END)
+    entry.insert(tk.END, result_fin)
+
+### 「√」コマンド 
+def click_root(event):
+    num_root = int(entry.get())
+    result = math.sqrt(num_root)
+    entry.delete(0, tk.END)
+    entry.insert(tk.END, result)
+
+### 2乗コマンド 
+def click_nijou(event):
+    siki = entry.get()
+    res0 = eval(siki)
+    result_fin = res0*res0
+    entry.delete(0, tk.END)
+    entry.insert(tk.END, result_fin)
+
 r = 1
 c = 0
 numbers = list(range(9, -1, -1))
@@ -55,35 +78,17 @@ for i, num in enumerate(hugou, 1):
     if r==5:
         r=0
         c+=1
-### 「√」コマンド 
-def click_root(event):
-    num_root = int(entry.get())
-    result = math.sqrt(num_root)
-    entry.delete(0, tk.END)
-    entry.insert(tk.END, result)
+
 ### 「√」ボタンの実装
 button = tk.Button(root, text = "√",font = ("", 30), width=4, height=2)
 button.bind("<1>", click_root)
 button.grid(row = 2, column = 4)
-### 2乗コマンド 
-def click_nijou(event):
-    siki = entry.get()
-    res0 = eval(siki)
-    result_fin = res0*res0
-    entry.delete(0, tk.END)
-    entry.insert(tk.END, result_fin)
+
 ### 2乗ボタンの実装
 button = tk.Button(root, text = "^",font = ("", 30), width=4, height=2)
 button.bind("<1>", click_nijou)
 button.grid(row = 3, column = 4)
 
-### %コマンド 
-def click_nijou(event):
-    siki = entry.get()
-    res0 = eval(siki)
-    result_fin = res0/100
-    entry.delete(0, tk.END)
-    entry.insert(tk.END, result_fin)
 ### %ボタンの実装
 button = tk.Button(root, text = "%",font = ("", 30), width=4, height=2)
 button.bind("<1>", click_nijou)
