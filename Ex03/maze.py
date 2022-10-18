@@ -72,26 +72,26 @@ def main_proc():
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.title("迷えるこうかとん")#練習1
+    root.title("迷えるこうかとん")#ウィンドウ作成
 
     canv = tk.Canvas(root, width=1500, height=900,bg="black")
-    canv.pack()#練習2
+    canv.pack()#Canvas生成
 
-    #練習9,10
+    #迷路作成&描画
     maze_lst = mm.make_maze(15, 9)
     #print(maze_lst) # 1:壁 0:床
     mm.show_maze(canv, maze_lst)  
 
-    tori = tk.PhotoImage(file=f"fig/9.png")#練習3
+    tori = tk.PhotoImage(file=f"fig/9.png")#こうかとんのインスタンス生成
     mx, my = 0, 1
     canv.create_image(mx, my, image=tori, tag="tori")
 
     key = ""  #現在押されているキー
 
-    #練習5,6
+    #KeyPressとKeyReleaseの設定
     root.bind("<KeyPress>", key_down)
     root.bind("<KeyRelease>", key_up)
-    #練習7
+    #常時起動するリアルタイム処理関数の定義
     main_proc() 
 
     root.mainloop()
