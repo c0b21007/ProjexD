@@ -19,7 +19,7 @@ def main_proc():
     if key == "Up":
         my -= 1
         cy = 100*my+50
-        tori = tk.PhotoImage(file=f"fig/1.png")
+        tori = tk.PhotoImage(file=f"fig/1.png")#こうかとんの画像変更
         canv.create_image(cx, cy, image=tori, tag="tori")
     if key == "Down":
         my += 1
@@ -37,7 +37,7 @@ def main_proc():
         tori = tk.PhotoImage(file=f"fig/4.png")
         canv.create_image(cx, cy, image=tori, tag="tori")
     if maze_lst[my][mx] != 1:
-        if maze_lst[my][mx] == 4:
+        if maze_lst[my][mx] == 4:#落とし穴の処理
             mx, my = 0, 1
             fall = True
         else:
@@ -65,7 +65,7 @@ def main_proc():
                 tori = tk.PhotoImage(file=f"fig/4.png")
                 canv.create_image(cx, cy, image=tori, tag="tori")
     canv.coords("tori", cx, cy)
-    if (mx == 14) and (my == 7):
+    if (mx == 14) and (my == 7):#ゴール到達時
         tkm.showinfo("ゴール", "Congratulations!")
     root.after(100, main_proc)
 
