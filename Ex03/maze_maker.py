@@ -24,10 +24,14 @@ def make_maze(yoko, tate):
     maze_lst[1][0] = 2
     maze_lst[7][14] = 3
 
+    for i in range(15):
+        if maze_lst[4][i] == 1:
+            maze_lst[4][i] = 4
+
     return maze_lst
 
 def show_maze(canvas, maze_lst):
-    color = ["white", "gray", "green", "red"]
+    color = ["white", "gray", "green", "red", "black"]
     for y in range(len(maze_lst)):
         for x in range(len(maze_lst[y])):
             canvas.create_rectangle(x*100, y*100, x*100+100, y*100+100, 

@@ -15,28 +15,58 @@ def key_up(event):
 def main_proc():
     global cx, cy
     global mx, my
+    global tori
     if key == "Up":
         my -= 1
+        cy = 100*my+50
+        tori = tk.PhotoImage(file=f"fig/1.png")
+        canv.create_image(cx, cy, image=tori, tag="tori")
     if key == "Down":
         my += 1
+        cy = 100*my+50
+        tori = tk.PhotoImage(file=f"fig/2.png")
+        canv.create_image(cx, cy, image=tori, tag="tori")
     if key == "Left":
         mx -= 1
+        cx = 100*mx+50
+        tori = tk.PhotoImage(file=f"fig/3.png")
+        canv.create_image(cx, cy, image=tori, tag="tori")
     if key == "Right":
         mx += 1
+        cx = 100*mx+50
+        tori = tk.PhotoImage(file=f"fig/4.png")
+        canv.create_image(cx, cy, image=tori, tag="tori")
     if maze_lst[my][mx] != 1:
-        cx, cy = mx*100+50, my*100+50
+        if maze_lst[my][mx] == 4:
+            mx, my = 0, 1
+            fall = True
+        else:
+            cx, cy = mx*100+50, my*100+50
     else:
-        if key == "Up":
-            my += 1
-        if key == "Down":
-            my -= 1
-        if key == "Left":
-            mx += 1
-        if key == "Right":
-            mx -= 1
+        if fall == False:
+            if key == "Up":
+                my += 1
+                cy = 100*my+50
+                tori = tk.PhotoImage(file=f"fig/1.png")
+                canv.create_image(cx, cy, image=tori, tag="tori")
+            if key == "Down":
+                my -= 1
+                cy = 100*my+50
+                tori = tk.PhotoImage(file=f"fig/2.png")
+                canv.create_image(cx, cy, image=tori, tag="tori")
+            if key == "Left":
+                mx += 1
+                cx = 100*mx+50
+                tori = tk.PhotoImage(file=f"fig/3.png")
+                canv.create_image(cx, cy, image=tori, tag="tori")
+            if key == "Right":
+                mx -= 1
+                cx = 100*mx+50
+                tori = tk.PhotoImage(file=f"fig/4.png")
+                canv.create_image(cx, cy, image=tori, tag="tori")
     canv.coords("tori", cx, cy)
     if (mx == 14) and (my == 7):
-            tkm.showinfo("ゴール", "Congratulations!")
+        tkm.showinfo("ゴール", "Congratulations!")
     root.after(100, main_proc)
 
 
@@ -52,8 +82,7 @@ if __name__ == "__main__":
     #print(maze_lst) # 1:壁 0:床
     mm.show_maze(canv, maze_lst)  
 
-    Inum = 0
-    tori = tk.PhotoImage(file=f"fig/5.png")#練習3
+    tori = tk.PhotoImage(file=f"fig/9.png")#練習3
     mx, my = 0, 1
     canv.create_image(mx, my, image=tori, tag="tori")
 
@@ -62,7 +91,6 @@ if __name__ == "__main__":
     #練習5,6
     root.bind("<KeyPress>", key_down)
     root.bind("<KeyRelease>", key_up)
-
     #練習7
     main_proc() 
 
