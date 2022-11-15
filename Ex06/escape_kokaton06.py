@@ -182,7 +182,6 @@ def main():
                 if len(bomblist) <= i:#爆弾がi個以下なら
                     bomblist.append(Bomb((255, 0, 0), 10, (+1, +1), scr))#爆弾を1個増やす
 
-
         # 練習8
         for i in range(len(bomblist)):
             if kkt.rct.colliderect(bomblist[i].rct): # こうかとんrctが爆弾rctと重なったら
