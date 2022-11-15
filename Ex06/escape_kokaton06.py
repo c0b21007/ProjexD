@@ -1,4 +1,5 @@
 import pygame as pg
+from tkinter import messagebox as tkm
 import sys
 from random import randint
 coin_0 = [0, 0, 0, 0, 0]
@@ -185,6 +186,7 @@ def main():
         # 練習8
         for i in range(len(bomblist)):
             if kkt.rct.colliderect(bomblist[i].rct): # こうかとんrctが爆弾rctと重なったら
+                tkm.showinfo("GAME OVER", "こうかとんは亡くなった")#C0B21159追加
                 return
 
         for i in range(len(coin_0)):# こうかとんrctがcoin[i]と重なったら
