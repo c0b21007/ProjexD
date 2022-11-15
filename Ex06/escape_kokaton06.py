@@ -84,7 +84,7 @@ class Coin:
     def update(self, scr:Screen):
         self.blit(scr)
 
-    def teleport(self, scr:Screen):
+    def teleport(self, scr:Screen):#コインの移動
         self.rct.centerx = randint(200, scr.rct.width-200)
         self.rct.centery = randint(200, scr.rct.height-200)
         self.blit(scr)
