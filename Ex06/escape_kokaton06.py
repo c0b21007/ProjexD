@@ -189,10 +189,10 @@ def main():
                 tkm.showinfo("GAME OVER", "こうかとんはなくなった")#C0B21159追加
                 return
 
-        for i in range(len(coin_0)):# こうかとんrctがcoin[i]と重なったら
-            if kkt.rct.colliderect(coin_0[i].rct):
-                score.up_score(coin_0[i].get_value())
-                coin_0[i].teleport(scr)
+        for i in coin_0:# こうかとんrctがcoin[i]と重なったら
+            if kkt.rct.colliderect(i.rct):
+                score.up_score(i.get_value())
+                i.teleport(scr)
                 
         pg.display.update() #練習2
         clock.tick(1000)
