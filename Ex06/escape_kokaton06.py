@@ -4,7 +4,6 @@ import sys
 from random import randint
 coin_0 = [0, 0, 0, 0, 0]
 bomblist = [0]
-
 class Screen:
     def __init__(self, title, wh, bgimg):
         pg.display.set_caption(title) #逃げろ！こうかとん
